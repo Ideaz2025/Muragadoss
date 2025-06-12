@@ -4,7 +4,6 @@ import { Spinner } from "react-bootstrap";
 import SideVertical from "./partials/SideVertical";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Skills from "./components/Skills";
 import About from "./components/About";
 import NavTop from "./partials/NavTop";
 import NavBot from "./partials/NavBot";
