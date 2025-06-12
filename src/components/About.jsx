@@ -13,12 +13,6 @@ function About() {
     slide: 1,
   });
 
-  function openLightboxOnSlide(number) {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      slide: number,
-    });
-  }
 
   return (
     <>
@@ -31,9 +25,10 @@ function About() {
         toggler={lightboxController.toggler}
         sources={certificateImages}
         slide={lightboxController.slide}
+        
       />
       
-      <Container fluid className="about-wrapper">
+      <Container fluid className="about-wrapper" onAbort={setLightboxController}>
         <div className="row align-items-center">
           {/* Left: Profile Image */}
           <div className="col-md-4 text-center mb-4 mb-md-0 mr-5">
