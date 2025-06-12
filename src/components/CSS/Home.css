@@ -16,6 +16,10 @@
     display: flex;
     align-items: center;
 }
+.home_center {
+    display:none;
+
+}
 
 .home-left, .home-right {
     padding-left: 30px;
@@ -44,8 +48,10 @@
 }
 
 img.home-image {
-    width: 440px;
-    height: 440px;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    aspect-ratio: 1 / 01;
     object-fit: cover;
     border-radius: 50%;
     border: 6px solid var(--third-color);
@@ -86,6 +92,9 @@ img.home-image:hover {
     .home-wrapper {
         margin: 0 !important;
     }
+    .home-center{
+        display: none;
+    }
 }
 
 @media (max-width: 992px) {
@@ -111,6 +120,13 @@ img.home-image:hover {
 
     a.btn-download {
         margin: auto;
+    }
+    .home_center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
     }
 }
 

@@ -29,7 +29,17 @@ function Home() {
           <title>Home</title>
         </Helmet>
       </HelmetProvider>
+  
       <Container fluid className="home-wrapper">
+        <div className=" home_center animate__animated animate__fadeIn animate__slower">
+          <img
+            className="home-image"
+            src={image}
+            onMouseOver={setAvatarReal}
+            onMouseOut={setAvatarAnimation}
+            alt="Avatar"
+          />
+        </div>
         <div className="home-left animate__animated animate__fadeInLeft">
           <h3>
             Hi there <img width="35" src={Hi} alt="Hi" />, my name is
