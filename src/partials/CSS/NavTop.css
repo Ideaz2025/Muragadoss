@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 .navtop {
     background-color: var(--fourth-color);
+    
+    
 }
 
 .navtop-brand a {
-    font-family: 'Source Serif Pro', serif;
+font-family: "Roboto", sans-serif;
     font-size: 28px !important;
     font-weight: 600;
     color: #000;
@@ -20,15 +23,15 @@ i#normal {
 }
 
 .navtop-list a {
-    font-family: 'Manrope', sans-serif;
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
+    font-weight: bolder;
     color: rgba(0, 0, 0, 0.6);
 }
 
 .active {
     border-bottom: 1px solid #000;
     text-decoration: none;
-    font-weight: 600;
     color: #000 !important;
 }
 

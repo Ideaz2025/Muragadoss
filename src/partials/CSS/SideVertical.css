@@ -1,4 +1,5 @@
 .side-vertical {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   height: 550px;

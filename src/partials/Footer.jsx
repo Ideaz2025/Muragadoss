@@ -6,7 +6,7 @@ function Footer() {
     <>
       <footer className="px-4">
         <div className="foot-left d-flex">
-          <p>Muhammad Thoriq Ali Said &copy; 2023</p>
+          <p>Dr.MURAGADOSS R &copy; 2025</p>
         </div>
         <div className="foot-right d-flex">
           <a

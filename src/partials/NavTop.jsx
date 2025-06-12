@@ -1,10 +1,9 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import { GrClose } from "react-icons/gr";
 import { useState } from "react";
 import "./CSS/NavTop.css";
-
 function NavTop() {
   const [toogleMenu, setToogleMenu] = useState(false);
 
@@ -32,14 +31,15 @@ function NavTop() {
               <NavLink to="/about" onClick={toogleClose}>
                 About
               </NavLink>
-              <NavLink to="/skills" onClick={toogleClose}>
-                Skills
-              </NavLink>
-              <NavLink to="/projects" onClick={toogleClose}>
-                Projects
+                
+              <NavLink to="/Professional Memberships" onClick={toogleClose}>
+              Professional Memberships
               </NavLink>
               <NavLink to="/contact" onClick={toogleClose}>
                 Contact
+              </NavLink>
+              <NavLink to="/journal"onClick={toogleClose}>
+                Journal
               </NavLink>
             </div>
           </Container>
@@ -54,7 +54,7 @@ function NavTop() {
         <Container fluid className="px-4">
           <Navbar.Brand className="navtop-brand">
             <Link to="/">
-              Thoriq<i id="normal"> AS</i>.
+              Dr.Muragadoss <i id="normal">R</i>.
             </Link>
           </Navbar.Brand>
           <button className="toogle-menu" onClick={toogleOpen}>
@@ -62,43 +62,82 @@ function NavTop() {
           </button>
           <Nav className="navtop-list ms-auto">
             <Nav.Link className="pe-3">
-              <NavLink
-                to="/"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+              <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
                 Home
               </NavLink>
             </Nav.Link>
-            <Nav.Link className="pe-3">
-              <NavLink
-                to="/about"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+       <Nav.Link className="pe-3">
+              <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
                 About
               </NavLink>
             </Nav.Link>
+
+            <NavDropdown title="Journal" id="journal-dropdown" className="pe-3">
+              <NavDropdown.Item as={NavLink} to="/journal/national">
+                National
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/journal/international">
+                International
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Conference" id="conference-dropdown" className="pe-3">
+              <NavDropdown.Item as={NavLink} to="/conference/national">
+                National
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/conference/international">
+                International
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Patent" id="patent-dropdown" className="pe-3">
+              <NavDropdown.Item as={NavLink} to="/patent/published">
+                Published
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/patent/granted">
+                Granted
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Book" id="book-dropdown" className="pe-3">
+              <NavDropdown.Item as={NavLink} to="/book/published">
+                Published
+              </NavDropdown.Item>
+            </NavDropdown>
+
             <Nav.Link className="pe-3">
-              <NavLink
-                to="/skills"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Skills
+              <NavLink to="/fdp" className={({ isActive }) => (isActive ? "active" : "")}>
+                FDP
               </NavLink>
             </Nav.Link>
+
             <Nav.Link className="pe-3">
-              <NavLink
-                to="/projects"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Projects
+              <NavLink to="/membership" className={({ isActive }) => (isActive ? "active" : "")}>
+                Membership
               </NavLink>
             </Nav.Link>
-            <Nav.Link>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+
+            <Nav.Link className="pe-3">
+              <NavLink to="/experience" className={({ isActive }) => (isActive ? "active" : "")}>
+                Experience
+              </NavLink>
+            </Nav.Link>
+
+ 
+
+            <Nav.Link className="pe-3">
+              <NavLink to="/awards" className={({ isActive }) => (isActive ? "active" : "")}>
+                Awards
+              </NavLink>
+            </Nav.Link>
+              <Nav.Link className="pe-3">
+              <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")}>
                 Contact
+              </NavLink>
+            </Nav.Link>
+              <Nav.Link className="pe-3">
+              <NavLink to="/Studentreviews" className={({ isActive }) => (isActive ? "active" : "")}>
+                Student Reviews
               </NavLink>
             </Nav.Link>
           </Nav>

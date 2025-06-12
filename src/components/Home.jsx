@@ -3,13 +3,14 @@
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import realProfile from "../assets/img/profile1.webp";
-import hoverProfile from "../assets/img/profilehover.webp";
+import realProfile from "../assets/img/muragadoss.gif";
+import hoverProfile from "../assets/img/muragadoss.gif";
 // import CVDoc from "../assets/download/CV.pdf";
 import Hi from "../assets/img/Hi.gif";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import "./CSS/Home.css";
+
 
 function Home() {
   function setAvatarReal() {
@@ -25,7 +26,7 @@ function Home() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Thoriq AS - Home</title>
+          <title>Home</title>
         </Helmet>
       </HelmetProvider>
       <Container fluid className="home-wrapper">
@@ -34,9 +35,9 @@ function Home() {
             Hi there <img width="35" src={Hi} alt="Hi" />, my name is
           </h3>
           <h2>
-            <span className="name-hover">Muhammad</span>
+            <span className="name-hover">Dr.MURAGADOSS R</span>
             <br />
-            <span className="name-hover">Thoriq Ali Said</span>
+            <span className="name-hover"></span>
           </h2>
           <NavLink to="/contact" className="btn-download text-center">
             Let's Connect

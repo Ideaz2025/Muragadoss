@@ -4,6 +4,8 @@ import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import './CSS/About.css';
 import certificateImages from '../assets/Routes/AllCertificate';
+import profileImg from '../assets/img/muragadoss.gif'; // Add this import
+import 'animate.css';
 
 function About() {
   const [lightboxController, setLightboxController] = useState({
@@ -22,7 +24,7 @@ function About() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Thoriq AS - About</title>
+          <title>About</title>
         </Helmet>
       </HelmetProvider>
       <FsLightbox
@@ -30,51 +32,67 @@ function About() {
         sources={certificateImages}
         slide={lightboxController.slide}
       />
+      
       <Container fluid className="about-wrapper">
-        <div className="about-left animate__animated animate__zoomIn">
-          <h3>About</h3>
-          <h4>
-            ───&nbsp;&nbsp;Page <strong>02</strong>
-          </h4>
-        </div>
-        <div className="about-right animate__animated animate__fadeIn animate__slower py-3">
-          <p>
-            Hi, I'm Muh Thoriq AS, a student studying Information Systems at
-            Hasanuddin University. I have a strong interest in web programming
-            and cloud computing. Specifically, I use a combination of
-            technologies called the MERN stack (MongoDB, Express.js, React.js,
-            Node.js), and I am also knowledgeable in cloud computing using
-            Google Cloud Platform (GCP), which allows me to create, manage, and
-            deploy dynamic, interactive, and secure web applications.
-          </p>
-
-          <h4>Certificates</h4>
-          <span>─────</span>
-          <div className="certificates-wrapper">
-            {certificateImages
-              .reduce((rows, src, index) => {
-                if (index % 3 === 0) rows.push([]);
-                rows[rows.length - 1].push(
-                  <div className="col certificates-ratio gap-image" key={src}>
-                    <img
-                      className="shadow"
-                      loading="lazy"
-                      src={src}
-                      alt={`Certificate ${index + 1}`}
-                      onClick={() => openLightboxOnSlide(index + 1)}
-                    />
-                  </div>
-                );
-                return rows;
-              }, [])
-              .map((row, index) => (
-                <div className="row my-4" key={index}>
-                  {row}
-                </div>
-              ))}
+        <div className="row align-items-center">
+          {/* Left: Profile Image */}
+          <div className="col-md-4 text-center mb-4 mb-md-0 mr-5">
+            <img
+              src={profileImg}
+              alt="Dr. R. Murugadoss Profile"
+              loading="lazy"
+              className="about-profile-img shadow animate__animated animate__fadeInLeft img-fluid"
+              style={{
+                width: "440px",
+                height: "400px",
+                objectFit: "cover",
+                borderRadius: "50%",
+                border: "4px solid #1c658c",
+                marginBottom: "1.5rem"
+              }}
+            />
+          </div>
+          {/* Right: About Text */}
+          <div className="col-md-8">
+            <div className="about-right animate__animated animate__fadeInRight py-3" style={{
+              background: "#f5f7fa",
+              borderRadius: "12px",
+              boxShadow: "0 1px 4px rgba(28,101,140,0.06)",
+              padding: "2rem 1.5rem",
+            }}>
+              <h1 style={{
+                color: "#1c658c",
+                fontSize: "1.7rem",
+                fontWeight: 700,
+                marginBottom: "1.2rem"
+              }}>About Dr. R. Murugadoss</h1>
+              <p style={{ color: "#00324e", fontSize: "1.08rem", marginBottom: "1rem" }}>
+                <strong>Dr. R. Murugadoss</strong> is an accomplished academician and administrator with over <strong>20 years of experience</strong> in teaching, research, and industry. He currently serves as <strong>Professor & Head of the Department of Artificial Intelligence and Data Science</strong> at <strong>V.S.B. College of Engineering Technical Campus</strong>, Kinathukadavu, Coimbatore.
+              </p>
+              <p style={{ color: "#00324e", fontSize: "1.08rem", marginBottom: "1rem" }}>
+                He holds a <strong>Ph.D. in Computer Science and Engineering</strong> from Sathyabama University, Chennai (2016), and has previously completed his <strong>M.E. (Computer Science & Engineering)</strong> from Anna University, Chennai, <strong>M.C.A</strong> from Madurai Kamaraj University, and <strong>B.Sc. in Computer Science</strong>.
+              </p>
+              <p style={{ color: "#00324e", fontSize: "1.08rem", marginBottom: "1rem" }}>
+                Dr. Murugadoss has held various academic roles at reputed institutions such as St. Ann’s College of Engineering and Technology, Chirala Engineering College, Thiruvalluvar College of Engineering & Technology, and more. He began his career as a software programmer at SAMTECH SYSTEMS, Chennai.
+              </p>
+              <div style={{ color: "#00", fontSize: "1.08rem", marginBottom: "1rem" }}>
+                <span>Known for his commitment to educational innovation and quality improvement, he has served as:</span>
+                <ul style={{ margin: "0.5rem 0 0 1.2rem", color: "#398ab9" ,listStyle:"none"}}>
+                  <li>🚀🧠 AICTE Hackathon Coordinator</li>
+                  <li>📋🏛️ Member Coordinator for UGC, NAAC, and NBA activities</li>
+                  <li>📊🎯 IQAC Member at institutional level</li>
+                </ul>
+              </div>
+              <p style={{ color: "#00324e", fontSize: "1.08rem" }}>
+                His core strengths lie in <strong>curriculum development</strong>, <strong>research mentorship</strong>, <strong>interpersonal communication</strong>, and <strong>conceptual clarity</strong> in computer science education. Dr. Murugadoss is passionate about guiding young minds, contributing to academic excellence, and building future-ready institutions.
+              </p>
+            </div>
           </div>
         </div>
+        {/* Certificates section remains below */}
+        
       </Container>
+
     </>
   );
 }
