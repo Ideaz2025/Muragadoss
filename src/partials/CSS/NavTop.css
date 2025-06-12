@@ -105,4 +105,75 @@ i#normal {
     .menu {
         display: flex;
     }
+
+    .menu-list {
+        margin: 25px 0 25px 0;
+        text-align: center;
+    }
+
+    .menu-list a {
+        display: inline-block;
+        color: #23293a !important;
+        background: none;
+        font-family: 'Archivo', sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        margin: 16px 0;
+        padding: 10px 0;
+        border-radius: 0;
+        box-shadow: none;
+        transition: color 0.2s;
+        text-align: center;
+        text-decoration: none;
+        min-width: 180px;   /* Ensures all links have the same width */
+    }
+
+    .menu-list a.active,
+    .menu-list a:hover {
+        color: var(--first-color) !important;
+        background: none;
+        text-decoration: underline;
+        font-style: normal;
+        box-shadow: none;
+    }
+
+    .mobile-accordion {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .accordion-toggle {
+        background: none;
+        border: none;
+        color: #23293a;
+        font-size: 22px;
+        font-family: 'Archivo', sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        transition: color 0.2s;
+    }
+    .accordion-toggle:focus {
+        outline: none;
+        color: var(--first-color);
+    }
+    .accordion-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 0 0 10px 0;
+    }
+    .accordion-content a {
+        font-size: 20px;
+        color: #23293a !important;
+        padding: 6px 0;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .accordion-content a.active,
+    .accordion-content a:hover {
+        color: var(--first-color) !important;
+        text-decoration: underline;
+    }
 }
