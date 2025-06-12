@@ -11,21 +11,8 @@ import { FiCopy } from "react-icons/fi";
 import { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./CSS/Contact.css";
-import { getFunctions, httpsCallable } from "firebase/functions";
-import { initializeApp } from "firebase/app";
 
-// Add your Firebase config here (same as your project)
-const firebaseConfig = {
-  apiKey: "AIzaSyAMmNfuUt_8Y4PAtfInYXC8h-eeQhSXEnk",
-  authDomain: "muragadoss-279dc.firebaseapp.com",
-  projectId: "muragadoss-279dc",
-  storageBucket: "muragadoss-279dc.appspot.com",
-  messagingSenderId: "1062338117229",
-  appId: "1:1062338117229:web:19df8fae1dd2dd57420964",
-  measurementId: "G-RFEQ3H6EQ6"
-};
-const app = initializeApp(firebaseConfig);
-const functions = getFunctions(app);
+
 
 function Contact() {
   const [alreadyCopy, setAlreadyCopy] = useState("Copy");
