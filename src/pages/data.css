@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 :root {
   --main-blue: #1c658c;
   --light-blue: #eaf6fb;
@@ -19,7 +19,7 @@ body,
 .journal-container,
 .journal-intl-container,
 .conference-intl-container {
-  font-family: 'Manrope', 'Roboto', Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 /* General container style */
 .patent-container,
