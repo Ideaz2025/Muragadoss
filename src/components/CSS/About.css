@@ -115,8 +115,10 @@
 }
 @media (max-width: 767px) {
   .about-profile-img {
-    width: 90px !important;
-    height: 90px !important;
+    width: 190px !important;
+    height: 190px !important;
+    margin-top: 20px;
+    margin-bottom:0;
   }
   .about-img-list {
     font-size: 0.95rem;
@@ -202,7 +204,8 @@
 @media (max-width: 576px) {
   .about-wrapper {
     padding: 0.5rem 0.2rem;
-    min-height: unset;
+    width: 100%;
+    height: auto;
   }
 
   .col.certificates-ratio {
@@ -215,6 +218,8 @@
   }
 
   .certificates-ratio img {
-    width: 300px;
+    width: 95vw;
+    max-width: 380px;
+    min-width: 200px;
   }
 }
