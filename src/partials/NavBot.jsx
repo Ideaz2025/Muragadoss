@@ -2,84 +2,43 @@ import { Link, useLocation } from "react-router-dom";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "./CSS/NavBot.css";
 
+const menuOrder = [
+  { path: "/", title: "Home" },
+  { path: "/about", title: "About" },
+  { path: "/journal/national", title: "Journal National" },
+  { path: "/journal/international", title: "Journal International" },
+  { path: "/conference/national", title: "Conference National" },
+  { path: "/conference/international", title: "Conference International" },
+  { path: "/patent/published", title: "Patent Published" },
+  { path: "/book/published", title: "Book Published" },
+  { path: "/fdp", title: "FDP" },
+  { path: "/membership", title: "Membership" },
+  { path: "/experience", title: "Experience" },
+  { path: "/awards", title: "Awards" },
+  { path: "/contact", title: "Contact" },
+  { path: "/Studentreviews", title: "Student Reviews" }
+];
+
 function NavBot() {
-  var numberPage;
-  var titlePage;
-  var directUp;
-  var directDown;
   const { pathname } = useLocation();
+  const currentIndex = menuOrder.findIndex(item => item.path === pathname);
 
-  switch (pathname) {
-    case "/":
-      numberPage = "01";
-      titlePage = "Home";
-      break;
-    case "/about":
-      numberPage = "02";
-      titlePage = "About";
-      break;
-    case "/skills":
-      numberPage = "03";
-      titlePage = "Skills";
-      break;
-    case "/projects":
-      numberPage = "04";
-      titlePage = "Projects";
-      break;
-    case "/contact":
-      numberPage = "05";
-      titlePage = "Contact";
-      break;
-    default:
-  }
+  // Fallback for unknown paths
+  const page = menuOrder[currentIndex] || { title: "", path: "" };
+  const numberPage = currentIndex >= 0 ? String(currentIndex + 1).padStart(2, "0") : "--";
+  const totalPages = menuOrder.length;
 
-  // Direct Up
-  switch (pathname) {
-    case "/":
-      directUp = "/contact";
-      break;
-    case "/about":
-      directUp = "/";
-      break;
-    case "/skills":
-      directUp = "/about";
-      break;
-    case "/projects":
-      directUp = "/skills";
-      break;
-    case "/contact":
-      directUp = "/projects";
-      break;
-    default:
-  }
-
-  // Direct Down
-  switch (pathname) {
-    case "/":
-      directDown = "/about";
-      break;
-    case "/about":
-      directDown = "/skills";
-      break;
-    case "/skills":
-      directDown = "/projects";
-      break;
-    case "/projects":
-      directDown = "/contact";
-      break;
-    case "/contact":
-      directDown = "/";
-      break;
-    default:
-  }
+  // Circular navigation
+  const directUp = menuOrder[(currentIndex - 1 + totalPages) % totalPages]?.path || "/";
+  const directDown = menuOrder[(currentIndex + 1) % totalPages]?.path || "/";
 
   return (
     <>
       <footer className="navbot px-4">
         <div className="navbot-left d-flex">
-          <p className="navbot-title">{titlePage}</p>
+          <p className="navbot-title">{page.title}</p>
           <p className="navbot-number">
-            {numberPage} <span className="disabled-color">/ 05</span>
+            {numberPage} <span className="disabled-color">/ {totalPages}</span>
           </p>
         </div>
         <div className="navbot-right d-flex">

@@ -13,14 +13,14 @@ function SideVertical() {
     { path: "/journal/international", number: "03", title: "International Journal" },
     { path: "/conference/national", number: "04", title: "National Conference" },
     { path: "/conference/international", number: "05", title: "International Conference" },
-    { path: "/patent", number: "06", title: "Patent" },
-    { path: "/book", number: "07", title: "Book" },
+    { path: "/patent/published", number: "06", title: "Patent" },
+    { path: "/book/published", number: "07", title: "Book" },
     { path: "/fdp", number: "08", title: "FDP" },
     { path: "/membership", number: "09", title: "Membership" },
     { path: "/experience", number: "10", title: "Experience" },
     { path: "/contact", number: "11", title: "Contact" },
-    { path: "/achievements", number: "12", title: "Achievements" },
-    { path: "/awards", number: "13", title: "Awards" },
+    { path: "/awards", number: "12", title: "Awards" },
+    { path: "/Studentreviews", number: "13", title: "Student Reviews" },
   ];
 
   // Find the current page index, fallback to 0 if not found

@@ -83,97 +83,136 @@ i#normal {
 .menu-list a.active {
     color: var(--first-color) !important;
     font-style: italic;
-    text-decoration: line-through;
+    text-decoration:none;
     border-bottom: none;
 }
 
 .menu-list a:hover {
-    text-decoration: line-through;
+    text-decoration: none;
     font-style: italic;
     color: var(--second-color);
 }
-
 @media (max-width: 992px) {
-    .navtop-list {
-        display: none !important;
-    }
+  .mobile-accordion {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .accordion-toggle {
+    background: none;
+    border: none;
+    color: #23293a;
+    font-size: 22px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    transition: color 0.2s;
+  }
+  .accordion-toggle:focus {
+    outline: none;
+    color: #303c3b;
+  }
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0 0 10px 0;
+  }
+  .accordion-content a {
+    color: #111111 !important;
+    font-size: 20px;
+    padding: 6px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .accordion-content a.active,
+  .accordion-content a:hover {
+    color: #313b3a !important;
+    text-decoration: none;
+  }
+  .menu {
+    display: flex !important;
+    position: fixed;
+    background: rgba(24, 28, 36, 0.96); /* dark overlay */
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 9999999;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
 
+  .menu-close {
+    width: 100%;
+    max-width: 400px;
+    background: #23293a; /* dark box */
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+    padding: 32px 16px !important;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-list {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-list a {
+    display: block;
+    color: #fff !important;
+    background: none;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 18px 0;
+    padding: 10px 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: color 0.2s;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .menu-list a.active,
+  .menu-list a:hover {
+    color: #080808 !important; /* accent color */
+    background: none;
+    text-decoration: none;
+    font-style: normal;
+    box-shadow: none;
+  }
     .toogle-menu {
-        display: flex;
-    }
-
-    .menu {
-        display: flex;
-    }
-
-    .menu-list {
-        margin: 25px 0 25px 0;
-        text-align: center;
-    }
-
-    .menu-list a {
-        display: inline-block;
-        color: #23293a !important;
-        background: none;
-        font-family: 'Archivo', sans-serif;
-        font-weight: 600;
-        font-size: 22px;
-        margin: 16px 0;
-        padding: 10px 0;
-        border-radius: 0;
-        box-shadow: none;
-        transition: color 0.2s;
-        text-align: center;
-        text-decoration: none;
-        min-width: 180px;   /* Ensures all links have the same width */
-    }
-
-    .menu-list a.active,
-    .menu-list a:hover {
-        color: var(--first-color) !important;
-        background: none;
-        text-decoration: underline;
-        font-style: normal;
-        box-shadow: none;
-    }
-
-    .mobile-accordion {
-        margin: 10px 0;
-        text-align: center;
-    }
-    .accordion-toggle {
-        background: none;
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        color: #000;
+        background-color: transparent;
         border: none;
-        color: #23293a;
-        font-size: 22px;
-        font-family: 'Archivo', sans-serif;
-        font-weight: 600;
-        cursor: pointer;
-        padding: 10px 0;
+    }
+    .toogle-menu i {
+            font-size: 30px;
+        }
+    .navtop {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        text-align: center;
-        transition: color 0.2s;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .accordion-toggle:focus {
-        outline: none;
-        color: var(--first-color);
-    }
-    .accordion-content {
+    .navtop-brand {
         display: flex;
-        flex-direction: column;
-        gap: 0;
-        margin: 0 0 10px 0;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
     }
-    .accordion-content a {
-        font-size: 20px;
-        color: #23293a !important;
-        padding: 6px 0;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .accordion-content a.active,
-    .accordion-content a:hover {
-        color: var(--first-color) !important;
-        text-decoration: underline;
-    }
+
 }

@@ -1,222 +1,124 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import { FaAlignRight } from "react-icons/fa";
-import { GrClose } from "react-icons/gr";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CSS/NavTop.css";
+import { FiMenu, FiHome, FiUser, FiBookOpen, FiAward, FiUsers, FiBriefcase, FiStar, FiMail, FiEdit3, FiChevronDown, FiChevronUp } from "react-icons/fi";
+
+function isMobile() {
+  return window.innerWidth <= 992;
+}
+
 function NavTop() {
-  const [toogleMenu, setToogleMenu] = useState(false);
+  const [mobile, setMobile] = useState(isMobile());
+  const [open, setOpen] = useState(null);
 
-  function toogleOpen() {
-    setToogleMenu(true);
-  }
+  useEffect(() => {
+    const handleResize = () => setMobile(isMobile());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  function toogleClose() {
-    setToogleMenu(false);
-  }
-
-  function MenuList({ onClick, asDropdown = false }) {
-    // Only for mobile: track which accordion is open
-    const [open, setOpen] = useState(null);
-
-    // Helper for toggling accordion
-    const handleAccordion = (key) => setOpen(open === key ? null : key);
-
-    // If not mobile, use Bootstrap NavDropdown as before
-    if (!asDropdown) {
-      return (
-        <>
-          <Nav.Link >
-            <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Home
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link >
-            <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              About
-            </NavLink>
-          </Nav.Link>
-          <NavDropdown title="Journal" id={`journal-dropdown${asDropdown ? "-mobile" : ""}`} className="pe-3">
-            <NavDropdown.Item as={NavLink} to="/journal/national" onClick={onClick}>
-              National
-            </NavDropdown.Item>
-            <NavDropdown.Item as={NavLink} to="/journal/international" onClick={onClick}>
-              International
-            </NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="Conference" id={`conference-dropdown${asDropdown ? "-mobile" : ""}`} className="pe-3">
-            <NavDropdown.Item as={NavLink} to="/conference/national" onClick={onClick}>
-              National
-            </NavDropdown.Item>
-            <NavDropdown.Item as={NavLink} to="/conference/international" onClick={onClick}>
-              International
-            </NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="Patent" id={`patent-dropdown${asDropdown ? "-mobile" : ""}`} className="pe-3">
-            <NavDropdown.Item as={NavLink} to="/patent/published" onClick={onClick}>
-              Published
-            </NavDropdown.Item>
-            <NavDropdown.Item as={NavLink} to="/patent/granted" onClick={onClick}>
-              Granted
-            </NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="Book" id={`book-dropdown${asDropdown ? "-mobile" : ""}`} className="pe-3">
-            <NavDropdown.Item as={NavLink} to="/book/published" onClick={onClick}>
-              Published
-            </NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link className="pe-3">
-            <NavLink to="/fdp" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              FDP
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link className="pe-3">
-            <NavLink to="/membership" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Membership
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link className="pe-3">
-            <NavLink to="/experience" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Experience
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link className="pe-3">
-            <NavLink to="/awards" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Awards
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link className="pe-3">
-            <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Contact
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link className="pe-3">
-            <NavLink to="/Studentreviews" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-              Student Reviews
-            </NavLink>
-          </Nav.Link>
-        </>
-      );
-    }
-
-    // Mobile: Use accordion style for dropdowns
-    return (
-      <>
-        <Nav.Link>
-          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-            Home
-          </NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>
-            About
-          </NavLink>
-        </Nav.Link>
-
-        {/* Journal Accordion */}
-        <div className="mobile-accordion">
-          <button className="accordion-toggle" onClick={() => handleAccordion("journal")}>
-            Journal {open === "journal" ? "▲" : "▼"}
-          </button>
-          {open === "journal" && (
-            <div className="accordion-content">
-              <NavLink to="/journal/national" onClick={onClick}>National</NavLink>
-              <NavLink to="/journal/international" onClick={onClick}>International</NavLink>
-            </div>
-          )}
-        </div>
-
-        {/* Conference Accordion */}
-        <div className="mobile-accordion">
-          <button className="accordion-toggle" onClick={() => handleAccordion("conference")}>
-            Conference {open === "conference" ? "▲" : "▼"}
-          </button>
-          {open === "conference" && (
-            <div className="accordion-content">
-              <NavLink to="/conference/national" onClick={onClick}>National</NavLink>
-              <NavLink to="/conference/international" onClick={onClick}>International</NavLink>
-            </div>
-          )}
-        </div>
-
-        {/* Patent Accordion */}
-        <div className="mobile-accordion">
-          <button className="accordion-toggle" onClick={() => handleAccordion("patent")}>
-            Patent {open === "patent" ? "▲" : "▼"}
-          </button>
-          {open === "patent" && (
-            <div className="accordion-content">
-              <NavLink to="/patent/published" onClick={onClick}>Published</NavLink>
-              <NavLink to="/patent/granted" onClick={onClick}>Granted</NavLink>
-            </div>
-          )}
-        </div>
-
-        {/* Book Accordion */}
-        <div className="mobile-accordion">
-          <button className="accordion-toggle" onClick={() => handleAccordion("book")}>
-            Book {open === "book" ? "▲" : "▼"}
-          </button>
-          {open === "book" && (
-            <div className="accordion-content">
-              <NavLink to="/book/published" onClick={onClick}>Published</NavLink>
-            </div>
-          )}
-        </div>
-
-        {/* The rest are simple links */}
-        <Nav.Link>
-          <NavLink to="/fdp" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>FDP</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/membership" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>Membership</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/experience" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>Experience</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/awards" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>Awards</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>Contact</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/Studentreviews" className={({ isActive }) => (isActive ? "active" : "")} onClick={onClick}>Student Reviews</NavLink>
-        </Nav.Link>
-      </>
-    );
-  }
+  // Accordion toggle for mobile
+  const handleAccordion = (key) => setOpen(open === key ? null : key);
 
   return (
-    <>
-      <Navbar className="navtop py-3" expand="lg" >
-        <Container fluid className="px-4">
-          <Navbar.Brand className="navtop-brand">
-            <Link to="/">
-              Dr.Muragadoss <i id="normal">R</i>.
-            </Link>
-          </Navbar.Brand>
-          <button className="toogle-menu" onClick={toogleOpen}>
-            <FaAlignRight />
-          </button>
-          <Nav className="navtop-list ms-auto">
-            <MenuList />
+    <Navbar collapseOnSelect expand="lg" variant="light" className="navtop py-3">
+      <Container fluid className="px-4">
+        <Navbar.Brand className="navtop-brand">
+          <Link to="/" className="navbar-brand">
+            Dr.Muragadoss <i id="normal">R</i>.
+          </Link>
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="responsive-navbar-nav">
+          <FiMenu size={28} />
+        </Navbar.Toggle>
+
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ms-auto navtop-list">
+            <Nav.Link as={NavLink} to="/" className="accordion-toggle">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/about" className="accordion-toggle">About</Nav.Link>
+
+            {mobile ? (
+              <>
+                {/* Journal Accordion */}
+                <div className="mobile-accordion">
+                  <button className="accordion-toggle" onClick={() => handleAccordion("journal")}>
+                    Journal {open === "journal" ? "▲" : "▼"}
+                  </button>
+                  {open === "journal" && (
+                    <div className="accordion-content">
+                      <NavLink to="/journal/national">National</NavLink>
+                      <NavLink to="/journal/international">International</NavLink>
+                    </div>
+                  )}
+                </div>
+                {/* Conference Accordion */}
+                <div className="mobile-accordion">
+                  <button className="accordion-toggle" onClick={() => handleAccordion("conference")}>
+                    Conference {open === "conference" ? "▲" : "▼"}
+                  </button>
+                  {open === "conference" && (
+                    <div className="accordion-content">
+                      <NavLink to="/conference/national">National</NavLink>
+                      <NavLink to="/conference/international">International</NavLink>
+                    </div>
+                  )}
+                </div>
+                {/* Patent Accordion */}
+                <div className="mobile-accordion">
+                  <button className="accordion-toggle" onClick={() => handleAccordion("patent")}>
+                    Patent {open === "patent" ? "▲" : "▼"}
+                  </button>
+                  {open === "patent" && (
+                    <div className="accordion-content">
+                      <NavLink to="/patent/published">Published</NavLink>
+                      <NavLink to="/patent/granted">Granted</NavLink>
+                    </div>
+                  )}
+                </div>
+                {/* Book Accordion */}
+                <div className="mobile-accordion">
+                  <button className="accordion-toggle" onClick={() => handleAccordion("book")}>
+                    Book {open === "book" ? "▲" : "▼"}
+                  </button>
+                  {open === "book" && (
+                    <div className="accordion-content">
+                      <NavLink to="/book/published">Published</NavLink>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <NavDropdown title="Journal" id="journal-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/journal/national">National</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/journal/international">International</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Conference" id="conference-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/conference/national">National</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/conference/international">International</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Patent" id="patent-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/patent/published">Published</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/patent/granted">Granted</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Book" id="book-dropdown">
+                  <NavDropdown.Item as={NavLink} to="/book/published">Published</NavDropdown.Item>
+                </NavDropdown>
+              </>
+            )}
+
+            <Nav.Link as={NavLink} to="/fdp" className="accordion-toggle">FDP</Nav.Link>
+            <Nav.Link as={NavLink} to="/membership "className="accordion-toggle">Membership</Nav.Link>
+            <Nav.Link as={NavLink} to="/experience"className="accordion-toggle">Experience</Nav.Link>
+            <Nav.Link as={NavLink} to="/awards"className="accordion-toggle">Awards</Nav.Link>
+            <Nav.Link as={NavLink} to="/contact"className="accordion-toggle">Contact</Nav.Link>
+            <Nav.Link as={NavLink} to="/Studentreviews"className="accordion-toggle">Student Reviews</Nav.Link>
           </Nav>
-        </Container>
-      </Navbar>
-      {toogleMenu && (
-        <div className="menu menu-mobile-theme">
-          <Container fluid className="menu-close">
-            <button className="toogle-menu ms-auto" onClick={toogleClose}>
-              <GrClose />
-            </button>
-            <Nav className="menu-list" style={{ display: "block" }}>
-              <MenuList onClick={toogleClose} asDropdown />
-            </Nav>
-          </Container>
-        </div>
-      )}
-    </>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 

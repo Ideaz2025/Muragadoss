@@ -6,11 +6,72 @@
   justify-content: flex-start;
   gap: 2.5rem;
   border-radius: 50px;
-   box-shadow: 10px 8px 32px rgba(28,101,140,0.16);
-  background:white;
+  box-shadow: 10px 8px 32px rgba(28, 101, 140, 0.16);
+  background: white;
   min-height: 100vh;
-  padding: 48px 0 32px 0;
-  margin-left: 400px;
+  padding: 48px 16px 32px 16px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+@media (max-width: 900px) {
+  .reviews-main-wrapper {
+    padding: 32px 16px 24px 16px;
+  }
+
+  .review-form {
+    max-width: 100%;
+  }
+
+  .review-cards,
+  .review-form,
+  .card,
+  .review-carousel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-main-wrapper {
+    padding: 24px 8px;
+    border-radius: 0;
+  }
+
+  .review-form {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .carousel-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .card h3 {
+    font-size: 1.05em;
+  }
+
+  .card h4 {
+    font-size: 0.95em;
+  }
+
+  .card p {
+    font-size: 0.95em;
+  }
+}
+.reviews-section h2,
+.review-form-section h2,
+.section-subtitle {
+  text-align: center;
 }
 
 .reviews-section,
