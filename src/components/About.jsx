@@ -54,6 +54,7 @@ function About() {
               borderRadius: "12px",
               boxShadow: "0 1px 4px rgba(28,101,140,0.06)",
               padding: "2rem 1.5rem",
+              width: "100%",
             }}>
               <h1 style={{
                 color: "#1c658c",
