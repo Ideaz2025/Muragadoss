@@ -250,6 +250,11 @@ body {
 
 /* Responsive FDP Table */
 @media (max-width: 700px) {
+  .fdp-table {
+      width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  }
   .fdp-table th, .fdp-table td {
     padding: 0.5rem 0.3rem;
     font-size: 0.95rem;
@@ -304,6 +309,7 @@ body {
   .fdp-table {
     font-size: 12px;
     min-width: 400px;
+   
   }
   .fdp-table th, .fdp-table td {
     padding: 4px 4px;

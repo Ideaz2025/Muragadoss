@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 .navtop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: var(--fourth-color);
-    
-    
 }
 
 .navtop-brand a {
@@ -272,3 +276,4 @@ i#normal {
   color: #ffffff !important;
   font-size: 1rem;
 }
+
