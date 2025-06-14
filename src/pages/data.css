@@ -441,6 +441,7 @@ img, table {
   margin: 0 auto;
 }
 
+
 .row {
   display: flex;
   justify-content: center;
@@ -455,6 +456,7 @@ img, table {
   align-items: center;
 }
 
+/* Certificate images */
 .certificates-ratio img {
   width: 300px;
   max-width: 90vw;
@@ -471,6 +473,7 @@ img, table {
   box-shadow: 0 6px 24px rgba(28,101,140,0.18);
 }
 
+/* Responsive for tablets */
 @media (max-width: 900px) {
   .row {
     gap: 1rem;
@@ -480,15 +483,20 @@ img, table {
   }
 }
 
+/* Responsive for phones */
 @media (max-width: 600px) {
   .row {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
+    margin-bottom: 1.2rem;
   }
   .certificates-ratio img {
     width: 95vw;
     max-width: 380px;
-    min-width: 180px;
+    min-width: 160px;
+  }
+  .certificates-wrapper{
+    height: 100vh;
   }
 }
