@@ -221,6 +221,7 @@ i#normal {
 
 }
 /* Side menu styles */
+/* Modern dark sidebar theme */
 .side-menu-backdrop {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -231,7 +232,7 @@ i#normal {
   position: fixed;
   top: 0; left: 0; bottom: 0;
   width: 270px;
-  background: #30374b;
+  background: #181c24;
   color: #fff;
   z-index: 9999;
   padding: 32px 18px 18px 18px;
@@ -240,6 +241,11 @@ i#normal {
   flex-direction: column;
   overflow-y: auto;
   animation: slideInLeft 0.25s;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE and Edge */
+}
+.side-menu::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Opera */
 }
 @keyframes slideInLeft {
   from { transform: translateX(-100%);}
@@ -258,7 +264,7 @@ i#normal {
 .side-menu-toggle {
   background: none;
   border: none;
-  color: #23293a;
+  color: #181c24;
   font-size: 2rem;
   margin-left: auto;
   cursor: pointer;
@@ -271,9 +277,69 @@ i#normal {
   text-align: left;
   display: flex;
   align-items: center;
+  border-radius: 6px;
+  padding: 8px 10px;
+transition: 
+    background 0.25s cubic-bezier(.4,0,.2,1),
+    color 0.25s cubic-bezier(.4,0,.2,1),
+    transform 0.18s cubic-bezier(.4,0,.2,1);
+}
+.side-menu .nav-link.active,
+.side-menu .nav-link:hover,
+.side-menu .accordion-toggle:hover {
+  background: #23293a;
+  color: #015dfc !important;
 }
 .side-menu .accordion-content a {
-  color: #ffffff !important;
+  color: #015dfc !important;
   font-size: 1rem;
+  margin-right: 34px;
+  margin-bottom: 6px;
+  display: block;
+  border-radius: 4px;
+  padding: 6px 0;
+  transition: background 0.18s, color 0.18s;
+}
+.side-menu .accordion-content a:hover {
+  background: #23293a;
+  color: #fff !important;
+}
+.side-menu ul,
+.side-menu .accordion-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+  color: #fff;
+  transition: color 0.22s;
+}
+
+.side-menu li::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #ffffff; /* Accent color dot */
+  border-radius: 50%;
+  transition: background 0.22s;
+}
+
+.side-menu li:hover,
+.side-menu li:focus-within {
+  color: #00e6d0;
+}
+
+.side-menu li:hover::before,
+.side-menu li:focus-within::before {
+  background: #fff;
 }
 
