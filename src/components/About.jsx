@@ -39,7 +39,7 @@ function About() {
               className="about-profile-img shadow animate__animated animate__fadeInLeft img-fluid"
               style={{
                 width: "440px",
-                height: "400px",
+                height: "440px",
                 objectFit: "cover",
                 borderRadius: "50%",
                 border: "4px solid #1c658c",
@@ -83,9 +83,61 @@ function About() {
                 His core strengths lie in <strong>curriculum development</strong>, <strong>research mentorship</strong>, <strong>interpersonal communication</strong>, and <strong>conceptual clarity</strong> in computer science education. Dr. Murugadoss is passionate about guiding young minds, contributing to academic excellence, and building future-ready institutions.
               </p>
             </div>
+<div className="about-profile-sections">
+          <div className="profile-section">
+            <h3>Technology and Subjects Taught</h3>
+            <ul>
+              <li><b>Front End:</b> Java, Python, .Net</li>
+              <li><b>Database:</b> Oracle, MySQL, SQL</li>
+              <li><b>Server:</b> JSP</li>
+              <li><b>Web Tools:</b> HTML, XML</li>
+              <li><b>Interfaces:</b> Eclipse, Python IDLE, Anaconda Navigator, PyCharm</li>
+              <li><b>Languages:</b> C, C++</li>
+              <li><b>Subjects & Programming Languages:</b>
+                <ul>
+                  <li>C, C++, Java (Core, Applets, Beans, JSP), Python and Advanced Python</li>
+                  <li>DBMS, Computer Networks, Software Engineering</li>
+                  <li>Software Project Management, Management Information Systems</li>
+                  <li>Data Warehousing and Data Mining, Machine Learning with Python</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div className="profile-section">
+            <h3>Personal Profile</h3>
+            <table className="profile-table">
+              <tbody>
+                <tr>
+                  <td><b>Father’s Name</b></td>
+                  <td>: V. Rajan</td>
+                </tr>
+                <tr>
+                  <td><b>Date of Birth</b></td>
+                  <td>: 30-05-1978</td>
+                </tr>
+                <tr>
+                  <td><b>Sex</b></td>
+                  <td>: Male</td>
+                </tr>
+                <tr>
+                  <td><b>Marital Status</b></td>
+                  <td>: Married</td>
+                </tr>
+                <tr>
+                  <td><b>Linguistic Abilities</b></td>
+                  <td>: English, Tamil, Kannada, Telugu</td>
+                </tr>
+                <tr>
+                  <td><b>Nationality</b></td>
+                  <td>: Indian</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        {/* Certificates section remains below */}
+          </div>
+        </div>
         
       </Container>
 

@@ -27,6 +27,7 @@ const Patentgranted = () => {
         toggler={lightboxController.toggler}
         sources={PatentImage}
         slide={lightboxController.slide}
+        className="fslightbox-source"
       />
       <div className="certificates-wrapper">
         {PatentImage
@@ -36,7 +37,7 @@ const Patentgranted = () => {
               <div className="col certificates-ratio gap-image animate__animated animate__zoomIn" style={{ animationDelay: `${0.2 + index * 0.07}s` }} key={src}>
                 <img
                   className="shadow"
-                  width="400px"
+                  width="300px"
                   height="100%"
                   loading="lazy"
                   src={src}

@@ -423,3 +423,72 @@ img, table {
     padding: 1.2rem 0.5rem;
   }
 }
+.fslightbox-source {
+  max-width: 95vw !important;
+  max-height: 85vh !important;
+  object-fit: contain !important;
+  margin: auto;
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+}
+/* Certificates section */
+.certificates-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certificates-ratio img {
+  width: 300px;
+  max-width: 90vw;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(28,101,140,0.13);
+  object-fit: cover;
+}
+
+.certificates-ratio img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(28,101,140,0.18);
+}
+
+@media (max-width: 900px) {
+  .row {
+    gap: 1rem;
+  }
+  .certificates-ratio img {
+    width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .certificates-ratio img {
+    width: 95vw;
+    max-width: 380px;
+    min-width: 180px;
+  }
+}

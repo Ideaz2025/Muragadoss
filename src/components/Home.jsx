@@ -42,7 +42,7 @@ function Home() {
         </div>
         <div className="home-left animate__animated animate__fadeInLeft">
           <h3>
-            Hi there <img width="35" src={Hi} alt="Hi" />, my name is
+            Hi there <img width="35" src={Hi} alt="Hi" />, I'm
           </h3>
           <h2>
             <span className="name-hover">Dr.MURAGADOSS R</span>
